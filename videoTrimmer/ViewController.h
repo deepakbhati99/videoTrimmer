@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ViewController.m
 //  videoTrimmer
 //
 //  Created by Himanshu Khatri on 1/26/16.
@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+
+@import Foundation;
+@import AVFoundation;
+@import AVKit;
 
 @interface ViewController : UIViewController
 
