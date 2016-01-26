@@ -344,15 +344,22 @@ NSURL * dataFilePath(NSString *path){
     startImage.image = videoThumbnail(originalURL,(NSInteger)cutter.lowerValue);
 
     
-    startTime = CMTimeMake((NSInteger)cutter.lowerValue * startTime.timescale, startTime.timescale);
+
     
     CGPoint upperCenter;
     upperCenter.x = (cutter.upperCenter.x + cutter.frame.origin.x);
     upperCenter.y = (cutter.center.y - 60.0f);
     endImage.center = upperCenter;
+    
+    
     endImage.image = videoThumbnail(originalURL,(NSInteger)cutter.upperValue);
     
-    endTime = CMTimeMake((totalTime -(NSInteger)cutter.lowerValue)  * startTime.timescale, endTime.timescale);
+    
+    
+    
+    startTime = CMTimeMake((NSInteger)cutter.lowerValue * startTime.timescale, startTime.timescale);
+    
+    endTime = CMTimeMake(((NSInteger)cutter.upperValue)  * startTime.timescale, endTime.timescale);
 
     
     // Prepare for animation
@@ -367,6 +374,9 @@ NSURL * dataFilePath(NSString *path){
     UICollectionViewCell * oldCellLower = [collectionViewThumbnails cellForItemAtIndexPath:dictionaryIP[lowerIndexPath]];
     UICollectionViewCell * oldCellUpper = [collectionViewThumbnails cellForItemAtIndexPath:dictionaryIP[upperIndexPath]];
 
+    [collectionViewThumbnails scrollToItemAtIndexPath:newIndexPathLower atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+
+    
     
 //    [self updateLastSelectedIndexPath];
     dictionaryIP=[@{
@@ -403,8 +413,7 @@ NSURL * dataFilePath(NSString *path){
 // Handle control value changed events just like a normal slider
 - (IBAction)labelSliderChanged:(NMRangeSlider*)sender{
     
-//    startImage.hidden=NO;
-//    endImage.hidden=NO;
+
     [self updateSliderThumbnails];
 }
 
