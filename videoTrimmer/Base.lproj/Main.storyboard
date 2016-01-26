@@ -44,12 +44,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nzv-om-zMz">
                                 <rect key="frame" x="0.0" y="384" width="320" height="184"/>
                                 <subviews>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dRh-uC-ffc">
-                                        <rect key="frame" x="0.0" y="52" width="57" height="70"/>
-                                    </imageView>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qlc-O7-ebE">
-                                        <rect key="frame" x="263" y="52" width="57" height="70"/>
-                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRM-wB-M7y" customClass="NMRangeSlider">
                                         <rect key="frame" x="10" y="130" width="300" height="39"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

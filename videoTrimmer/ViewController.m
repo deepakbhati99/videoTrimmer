@@ -11,12 +11,7 @@
 
 @import MobileCoreServices;
 @interface ViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>{
-    
 
-    
-    
-    IBOutlet UIImageView *startImage;
-    IBOutlet UIImageView *endImage;
     
     IBOutlet UIView *movieView;
     
@@ -323,12 +318,14 @@ NSURL * dataFilePath(NSString *path){
     
     cutter.minimumRange = 5;
     
-    startImage.hidden=YES;
-    endImage.hidden=YES;
+
     
     dictionaryIP=[NSMutableDictionary new];
     
-    [self updateLastSelectedIndexPath];
+    dictionaryIP=[@{
+                    lowerIndexPath:[NSIndexPath indexPathForItem:cutter.lowerValue-1 inSection:0],
+                    upperIndexPath:[NSIndexPath indexPathForItem:cutter.upperValue-1 inSection:0],
+                    }mutableCopy];
     
     
 }
@@ -336,31 +333,10 @@ NSURL * dataFilePath(NSString *path){
 - (void) updateSliderThumbnails
 {
     // You get get the center point of the slider handles and use this to arrange other subviews
-    
-    CGPoint lowerCenter;
-    lowerCenter.x = (cutter.lowerCenter.x + cutter.frame.origin.x);
-    lowerCenter.y = (cutter.center.y - 60.0f);
-    startImage.center = lowerCenter;
-    startImage.image = videoThumbnail(originalURL,(NSInteger)cutter.lowerValue);
 
-    
 
-    
-    CGPoint upperCenter;
-    upperCenter.x = (cutter.upperCenter.x + cutter.frame.origin.x);
-    upperCenter.y = (cutter.center.y - 60.0f);
-    endImage.center = upperCenter;
-    
-    
-    endImage.image = videoThumbnail(originalURL,(NSInteger)cutter.upperValue);
-    
-    
-    
-    
     startTime = CMTimeMake((NSInteger)cutter.lowerValue * startTime.timescale, startTime.timescale);
-    
     endTime = CMTimeMake(((NSInteger)cutter.upperValue)  * startTime.timescale, endTime.timescale);
-
     
     // Prepare for animation
     [collectionViewThumbnails.collectionViewLayout invalidateLayout];
@@ -378,7 +354,6 @@ NSURL * dataFilePath(NSString *path){
 
     
     
-//    [self updateLastSelectedIndexPath];
     dictionaryIP=[@{
                     lowerIndexPath:newIndexPathLower,
                     upperIndexPath:newIndexPathUpper,
@@ -404,12 +379,7 @@ NSURL * dataFilePath(NSString *path){
     }];
     
 }
--(void)updateLastSelectedIndexPath{
-    dictionaryIP=[@{
-                    lowerIndexPath:[NSIndexPath indexPathForItem:cutter.lowerValue-1 inSection:0],
-                    upperIndexPath:[NSIndexPath indexPathForItem:cutter.upperValue-1 inSection:0],
-                    }mutableCopy];
-}
+
 // Handle control value changed events just like a normal slider
 - (IBAction)labelSliderChanged:(NMRangeSlider*)sender{
     
