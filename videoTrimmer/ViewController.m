@@ -329,7 +329,7 @@ NSURL * dataFilePath(NSString *path){
 //------------------------------------------------------------------------------------------------------
 
 #pragma mark -
-#pragma mark - Label  Slider
+#pragma mark - NMRangeSlider
 
 - (void) configureSlider
 {
