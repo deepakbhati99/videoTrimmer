@@ -52,7 +52,7 @@
                                             <constraint firstAttribute="height" constant="39" id="i6h-BQ-exa"/>
                                         </constraints>
                                         <connections>
-                                            <action selector="labelSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="aWX-eM-4JF"/>
+                                            <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="cQl-cI-TaD"/>
                                         </connections>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="f4o-65-0cd">
@@ -127,7 +127,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="A3O-Yy-hlW">
                             <color key="tintColor" red="0.23349074550000001" green="0.75686274509999996" blue="0.62840918690000003" alpha="0.87777039010000002" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="trim:" destination="BYZ-38-t0r" id="iuo-TO-NUS"/>
+                                <action selector="trimVideo:" destination="BYZ-38-t0r" id="ISQ-aj-8So"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
